@@ -20,4 +20,25 @@ public class CursoServiceImpl implements CursoService{
 		return repository.findAll();
 	}
 
+	@Override
+	public Curso buscarPorId(int id) {
+		// TODO Auto-generated method stub
+		return repository.findById(id).get();
+	}
+
+	@Override
+	public List<Curso> buscarPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+
+		List<Curso> cursos = null;
+		try {
+			cursos = repository.findByNombre(nombre);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return cursos;
+	}
+
 }
